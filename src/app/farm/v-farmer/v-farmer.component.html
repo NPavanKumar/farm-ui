@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/farm/farmer-details/', undefined]">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <!-- <button type="button" class="btn btn-primary"> Sample</button> -->
+  </ion-fab>
+
+  <ion-grid class="ion-text-center">
+
+    <ion-row class="header-row">
+      <ion-col *ngFor="let column of listOfColumns">
+        <ion-text>{{ column.displayName  }}</ion-text>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngFor="let data of dataList" >
+      <ion-col><ion-text>{{data['First_Name'] }} {{ data['Last_Name']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Father_Name']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Mobile_Number1']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Farmer_Photo_Id']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Mobile_Number2']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Banking_Id']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Email']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Supervisor_Id']}} </ion-text></ion-col>
+      <ion-col><ion-text>{{data['Tally_FarmerCode']}} </ion-text></ion-col>
+      <ion-col>
+        <div class="item-note" item-end>
+          <button ion-button clear [routerLink]="['/farm/farmer-details/', data.Mobile_Number1]">
+            <ion-icon name="create-outline" style="zoom:1.5;color: #0000ff;background-color: transparent;"></ion-icon>
+          </button>
+          <button ion-button clear (click)="delete(data)">
+            <ion-icon name="remove-circle-outline" style="zoom:1.5;color: #ff0000;background-color: transparent;"></ion-icon>
+          </button>
+        </div>
+      </ion-col>
+       
+    </ion-row>
+
+  </ion-grid>
+
+
+  
+</ion-content>
+

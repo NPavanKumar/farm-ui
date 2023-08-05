@@ -1,0 +1,58 @@
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/add-song">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <!-- <button type="button" class="btn btn-primary"> Sample</button> -->
+  </ion-fab>
+
+  <ion-grid class="ion-text-center">
+
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Name</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Price</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Manage</ion-text>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngFor="let data of farmers" >
+      <ion-col>
+        <ion-text>
+          {{data.product_name}}
+        </ion-text>
+      </ion-col>
+
+        <ion-col>
+          <ion-text>
+            {{data.product_price}}
+          </ion-text>
+        </ion-col>
+
+        <ion-col>
+          <div class="item-note" item-end>
+            <button ion-button clear [routerLink]="['/edit-song/', data._id]">
+              <ion-icon name="create" style="zoom:2.0"></ion-icon>
+            </button>
+            <button ion-button clear (click)="delete(data)">
+              <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+            </button>
+          </div>
+        </ion-col>
+       
+    </ion-row>
+
+  </ion-grid>
+
+
+  
+</ion-content>
+
+
